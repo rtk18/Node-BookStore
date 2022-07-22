@@ -6,7 +6,7 @@ const https = require('https')
 const fs = require('fs')
 
 const app = express()
-
+const port = process.env.PORT || 4000
 app.use(express.json())
 
 const sslOptions = {
@@ -40,8 +40,8 @@ const swaggerOptions = {
 const specs = swaggerJsDoc(swaggerOptions)
 app.use('/swagger', swaggerUI.serve, swaggerUI.setup(specs))
 app.use('/api', routes) //to use the routes
-app.get('/', (req,res)=>{
-    res.send("Welcome To My Book Store App")
+app.get('/', (req, res) => {
+    res.send('Welcome To My Book Store App')
 }) //to use the routes
 
 // const listener = app.listen(process.env.PORT || 4000, () => {
@@ -49,4 +49,4 @@ app.get('/', (req,res)=>{
 // })
 var httpsServer = https.createServer(sslOptions, app)
 
-httpsServer.listen(4000, console.log(`Server listening on port: ${4000}`))
+httpsServer.listen(port, console.log(`Server listening on port: ${port}`))
