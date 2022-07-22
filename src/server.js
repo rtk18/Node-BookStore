@@ -39,8 +39,10 @@ const swaggerOptions = {
 
 const specs = swaggerJsDoc(swaggerOptions)
 app.use('/swagger', swaggerUI.serve, swaggerUI.setup(specs))
-
 app.use('/api', routes) //to use the routes
+app.use('/', (req,res)=>{
+    res.send("Welcome To My Book Store App")
+}) //to use the routes
 
 // const listener = app.listen(process.env.PORT || 4000, () => {
 //     console.log('Your app is listening on port ' + listener.address().port)
