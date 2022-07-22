@@ -47,6 +47,6 @@ app.get('/', (req, res) => {
 // const listener = app.listen(process.env.PORT || 4000, () => {
 //     console.log('Your app is listening on port ' + listener.address().port)
 // })
-var httpsServer = https.createServer(sslOptions, app)
+var httpsServer = https.createServer(app)
 
 httpsServer.listen(port, console.log(`Server listening on port: ${port}`))
