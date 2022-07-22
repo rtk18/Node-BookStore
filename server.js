@@ -1,5 +1,5 @@
 const express = require('express')
-const routes = require('./routes/tea') // import the routes
+const routes = require('./routes/testRoutes') // import the routes
 import swaggerUI from 'swagger-ui-express'
 import swaggerJsDoc from 'swagger-jsdoc'
 
