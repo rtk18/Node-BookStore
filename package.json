@@ -2,9 +2,10 @@
   "name": "node-bookstore",
   "version": "1.0.0",
   "description": "",
+  "type": "commonjs",
   "main": "server.js",
   "scripts": {
-    "start": "node --exec babel-node src/server.js",
+    "start": "node src/server.js",
     "dev": "nodemon --exec babel-node src/server.js",
     "build": "babel ./src --out-dir ./build",
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -1,7 +1,7 @@
 const express = require('express')
 const routes = require('../src/routes/testRoutes.js') // import the routes
-import swaggerUI from 'swagger-ui-express'
-import swaggerJsDoc from 'swagger-jsdoc'
+const swaggerUI = require('swagger-ui-express')
+const swaggerJsDoc = require('swagger-jsdoc')
 const https = require('https')
 const fs = require('fs')
 
