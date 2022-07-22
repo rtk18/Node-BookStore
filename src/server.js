@@ -2,7 +2,7 @@ const express = require('express')
 const routes = require('../src/routes/testRoutes.js') // import the routes
 const swaggerUI = require('swagger-ui-express')
 const swaggerJsDoc = require('swagger-jsdoc')
-const https = require('https')
+const http = require('http')
 const fs = require('fs')
 
 const app = express()
@@ -47,6 +47,6 @@ app.get('/', (req, res) => {
 // const listener = app.listen(process.env.PORT || 4000, () => {
 //     console.log('Your app is listening on port ' + listener.address().port)
 // })
-var httpsServer = https.createServer(app)
+var httpsServer = http.createServer(app)
 
 httpsServer.listen(port, console.log(`Server listening on port: ${port}`))
