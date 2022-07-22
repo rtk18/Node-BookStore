@@ -4,11 +4,14 @@ const swaggerUI = require('swagger-ui-express')
 const swaggerJsDoc = require('swagger-jsdoc')
 const http = require('http')
 const fs = require('fs')
+// const cors = require('cors')
 
 const app = express()
-const port = process.env.PORT || 4000
-app.use(express.json())
 
+const port = process.env.PORT || 4000
+
+app.use(express.json())
+// app.use(cors)
 const sslOptions = {
     key: fs.readFileSync('key.pem'),
     cert: fs.readFileSync('cert.pem'),
@@ -29,7 +32,7 @@ const swaggerOptions = {
 
         servers: [
             {
-                url: 'http://localhost:4000',
+                url: 'http://127.0.0.1:4000',
                 description: 'Book Store Application API Documentation',
             },
         ],
