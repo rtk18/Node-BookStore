@@ -33,6 +33,8 @@ router.get('/getAllBooks', booksController.getAllBooks)
  *                 type: string
  *               Genre:
  *                 type: string
+ *               AuthorName:
+ *                 type: string
  *       required: true
  *     tags: [Book]
  *     responses:

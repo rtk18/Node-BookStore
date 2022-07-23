@@ -41,6 +41,7 @@ const addBook = async (req, res, next) => {
         const BookName = req.body.BookName
         const EditionYear = req.body.EditionYear
         const Genre = req.body.Genre
+        const AuthorName = req.body.AuthorName
         const sql =
             'insert into Books' +
             ' values(' +
@@ -50,6 +51,8 @@ const addBook = async (req, res, next) => {
             EditionYear +
             ', ' +
             Genre +
+            ', ' +
+            AuthorName +
             ')'
         var result = client.query(sql, (err, dbRes) => {
             if (err) throw err
