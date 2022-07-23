@@ -43,6 +43,6 @@ router.get('/getAllBooks', booksController.getAllBooks)
  *       500:
  *         description: Server error occured
  */
-router.get('/addBook', booksController.addBook)
+router.post('/addBook', booksController.addBook)
 
 module.exports = router
