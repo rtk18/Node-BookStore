@@ -10,8 +10,6 @@ const client = new Client({
 client.connect()
 // client.end()
 
-const Config = require('getconfig');
-
 const getAllUsers = async (req, res, next) => {
     try {
         const sql = 'select * from Users'
