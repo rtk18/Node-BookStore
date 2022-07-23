@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const testController = require('../controllers/userController.js')
+const usersController = require('../controllers/usersController.js')
 
 /**
  * @swagger
@@ -16,7 +16,7 @@ const testController = require('../controllers/userController.js')
  *             schema:
  *               type: array
  */
-router.get('/getAllUsers', testController.getAllUsers)
+router.get('/getAllUsers', usersController.getAllUsers)
 
 /**
  * @swagger
@@ -39,6 +39,6 @@ router.get('/getAllUsers', testController.getAllUsers)
  *             schema:
  *               type: array
  */
-router.get('/getUser', testController.getUser)
+router.get('/getUser', usersController.getUser)
 
 module.exports = router

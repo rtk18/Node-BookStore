@@ -17,7 +17,7 @@ const getAllUsers = async (req, res, next) => {
         var result = client.query(sql, (err, dbRes) => {
             if (err) throw err
             result = dbRes.rows
-            if (result) {
+            if (result.length) {
                 res.json({
                     statusCode: 200,
                     message: 'Success',

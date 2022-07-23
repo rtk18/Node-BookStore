@@ -1,0 +1,120 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Book Store Application API Documentation",
+    "version": "1.0.0"
+  },
+  "components": {
+    "securitySchemes": {}
+  },
+  "security": [
+    {}
+  ],
+  "paths": {
+    "/api/book/getAllBooks": {
+      "get": {
+        "summary": "Get All Books",
+        "tags": [
+          "Book"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get All Books"
+          },
+          "500": {
+            "description": "Server error occured"
+          }
+        }
+      }
+    },
+    "/api/book/addBook": {
+      "post": {
+        "summary": "Add Book.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "BookName": {
+                    "type": "string"
+                  },
+                  "EditionYear": {
+                    "type": "string"
+                  },
+                  "Genre": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "tags": [
+          "Book"
+        ],
+        "responses": {
+          "200": {
+            "description": "Added Book Successfully"
+          },
+          "500": {
+            "description": "Server error occured"
+          }
+        }
+      }
+    },
+    "/api/user/getAllUsers": {
+      "get": {
+        "summary": "Get All Users",
+        "tags": [
+          "User"
+        ],
+        "responses": {
+          "200": {
+            "description": "the list of the posts",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/user/getUser": {
+      "get": {
+        "summary": "Get User",
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "UserId",
+            "schema": {
+              "type": "number"
+            },
+            "required": true,
+            "description": "UserId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "the list of the posts",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}
