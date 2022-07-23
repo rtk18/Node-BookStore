@@ -41,6 +41,7 @@ const addBook = async (req, res, next) => {
         const BookName = req.body.BookName
         const EditionYear = req.body.EditionYear
         const Genre = req.body.Genre
+        const AuthorName = req.body.AuthorName
         const sql =
             'insert into Books' +
             ' values(' +
@@ -50,23 +51,19 @@ const addBook = async (req, res, next) => {
             EditionYear +
             "', '" +
             Genre +
+            "','" +
+            AuthorName +
             "')"
         var result = client.query(sql, (err, dbRes) => {
-            if (err) throw err
-            result = dbRes.rows
-            if (result.length) {
-                res.json({
-                    statusCode: 200,
-                    message: 'Success',
-                    data: result,
-                })
-            } else {
-                res.json({
-                    statusCode: 404,
-                    message: 'No Records Found',
-                    data: [],
-                })
+            if (err) {
+                res.send({ statusCode: 500, message: err.message })
+                return
             }
+            result = dbRes.rows
+            res.json({
+                statusCode: 200,
+                message: 'Inserted Successfully',
+            })
         })
     } catch (error) {
         res.send({
