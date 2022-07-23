@@ -5,9 +5,10 @@
   "type": "commonjs",
   "main": "server.js",
   "scripts": {
-    "start": "node src/server.js",
-    "dev": "nodemon --exec babel-node src/server.js",
-    "dev1": "node src/server.js",
+    "swagger": "node ./node_modules/swagger-jsdoc/bin/swagger-jsdoc.js -d src/definition.js src/Routes/*.js",
+    "start": "node src/server.js && npm run swagger",
+    "dev": "nodemon --exec babel-node src/server.js && npm run swagger",
+    "dev1": "node src/server.js && npm run swagger",
     "build": "babel ./src --out-dir ./build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
