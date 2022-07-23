@@ -1,5 +1,7 @@
 const express = require('express')
-const routes = require('../src/routes/testRoutes.js') // import the routes
+
+const user = require('../src/routes/userRoutes.js') // import the routes
+
 const swaggerUI = require('swagger-ui-express')
 const swaggerJsDoc = require('swagger-jsdoc')
 const http = require('http')
@@ -42,7 +44,8 @@ const swaggerOptions = {
 
 const specs = swaggerJsDoc(swaggerOptions)
 app.use('/swagger', swaggerUI.serve, swaggerUI.setup(specs))
-app.use('/api', routes) //to use the routes
+app.use('/api/user', user) //to use the routes
+
 app.get('/', (req, res) => {
     res.send('Welcome To My Book Store App')
 }) //to use the routes
@@ -51,5 +54,5 @@ app.get('/', (req, res) => {
 //     console.log('Your app is listening on port ' + listener.address().port)
 // })
 var httpsServer = http.createServer(app)
-
+httpsServer.timeout = 1000
 httpsServer.listen(port, console.log(`Server listening on port: ${port}`))
