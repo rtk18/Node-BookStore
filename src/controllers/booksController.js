@@ -1,6 +1,6 @@
-const config = require('dotenv').config()
+const config = require("dotenv").config()
 
-const { Client } = require('pg')
+const { Client } = require("pg")
 const client = new Client({
     connectionString: process.env.DATABASE_URL,
     ssl: {
@@ -11,20 +11,20 @@ client.connect()
 
 const getAllBooks = async (req, res, next) => {
     try {
-        const sql = 'select * from Books'
+        const sql = "select * from Books"
         var result = client.query(sql, (err, dbRes) => {
             if (err) throw err
             result = dbRes.rows
             if (result.length) {
                 res.json({
                     statusCode: 200,
-                    message: 'Success',
+                    message: "Success",
                     data: result,
                 })
             } else {
                 res.json({
                     statusCode: 404,
-                    message: 'No Records Found',
+                    message: "No Records Found",
                     data: [],
                 })
             }
@@ -43,8 +43,8 @@ const addBook = async (req, res, next) => {
         const Genre = req.body.Genre
         const AuthorName = req.body.AuthorName
         const sql =
-            'insert into Books' +
-            ' values(' +
+            "insert into Books" +
+            " values(" +
             " nextval('books_sequence'), '" +
             BookName +
             "', '" +
@@ -62,7 +62,7 @@ const addBook = async (req, res, next) => {
             result = dbRes.rows
             res.json({
                 statusCode: 200,
-                message: 'Inserted Successfully',
+                message: "Inserted Successfully",
             })
         })
     } catch (error) {
